@@ -33,6 +33,7 @@ try:
     from plugins import builtinPlugins
     from pluginItems import PluginItem
     from widgets import TitleBar, CustomTitleBarWindowMixin, EventFilter, ButtonCombbox, HelpWidget
+    print("try import complete")
 except ImportError:
     from COMTool import helpAbout,autoUpdate, utils_ui
     from COMTool.Combobox import ComboBox
@@ -42,6 +43,7 @@ except ImportError:
     from COMTool.plugins import builtinPlugins
     from COMTool.pluginItems import PluginItem
     from .widgets import TitleBar, CustomTitleBarWindowMixin, EventFilter, ButtonCombbox, HelpWidget
+    print("except import complete")
 
 from PyQt5.QtCore import pyqtSignal, Qt, QRect, QMargins
 from PyQt5.QtWidgets import (QApplication, QWidget,QPushButton,QMessageBox,QDesktopWidget,QMainWindow,
@@ -290,7 +292,7 @@ class MainWindow(CustomTitleBarWindowMixin, QMainWindow):
         # menu layout
         self.settingsButton = QPushButton()
         self.skinButton = QPushButton("")
-        self.languageCombobox = ButtonCombbox(icon="fa.language", btnClass="smallBtn2")
+        self.languageCombobox = ButtonCombbox(icon="fa6s.language", btnClass="smallBtn2")
         self.languages = i18n.get_languages()
         for locale in self.languages:
             self.languageCombobox.addItem(self.languages[locale])
@@ -309,7 +311,7 @@ class MainWindow(CustomTitleBarWindowMixin, QMainWindow):
         self.aboutButton.setObjectName("menuItem")
         self.functionalButton.setObjectName("menuItem")
         # plugins slector
-        self.pluginsSelector = ButtonCombbox(icon="fa.plus", btnClass="smallBtn2")
+        self.pluginsSelector = ButtonCombbox(icon="fa6s.plus", btnClass="smallBtn2")
         self.pluginsSelector.addItem(self.loadPluginStr)
         self.pluginsSelector.activated.connect(self.onPluginSelectorChanged)
 
